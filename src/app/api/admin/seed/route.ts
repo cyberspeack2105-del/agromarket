@@ -10,7 +10,7 @@ import { NextResponse } from "next/server";
  *
  * Admin credentials:
  *   Phone:    1234567890
- *   Password: raju2105
+ *   Password: rootq21
  */
 export async function POST(request: Request) {
   try {
@@ -22,18 +22,21 @@ export async function POST(request: Request) {
 
     await connectDatabase();
 
-    // Check if admin already exists
+    const passwordHash = await hashPassword("rootq21");
+
+    // If admin already exists, reset its password to the current one
     const existing = await UserModel.findOne({ phone: "1234567890", role: "admin" });
     if (existing) {
+      existing.passwordHash = passwordHash;
+      await existing.save();
       return NextResponse.json({
         success: true,
-        message: "Admin account already exists.",
+        message: "Admin account already existed — password has been reset.",
         data: { phone: "1234567890", role: "admin" },
       });
     }
 
     // Create admin
-    const passwordHash = await hashPassword("raju2105");
     const admin = await UserModel.create({
       fullName:          "Admin",
       phone:             "1234567890",

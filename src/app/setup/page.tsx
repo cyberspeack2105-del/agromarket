@@ -54,7 +54,7 @@ export default function SetupPage() {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-green-700">Password</span>
-              <span className="font-mono text-sm font-bold text-green-900">raju2105</span>
+              <span className="font-mono text-sm font-bold text-green-900">rootq21</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-green-700">Role</span>
@@ -109,7 +109,7 @@ export default function SetupPage() {
                 Go to Login
               </Link>
               <p className="text-center text-xs text-gray-400">
-                Login with phone <strong>1234567890</strong> and password <strong>raju2105</strong>
+                Login with phone <strong>1234567890</strong> and password <strong>rootq21</strong>
               </p>
             </div>
           )}
