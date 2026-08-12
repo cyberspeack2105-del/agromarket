@@ -50,7 +50,8 @@ export async function POST(request: Request) {
         location: user.location,
       },
     });
-  } catch {
+  } catch (error) {
+    console.error("[v0] Login error:", error);
     return fail("Unable to login right now.", 500);
   }
 }
